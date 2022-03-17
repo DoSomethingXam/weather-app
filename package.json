@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "node --optimize_for_size --max_old_space_size=4096 --gc_interval=100 node_modules/.bin/next build",
+    "start": "node --optimize_for_size --max_old_space_size=4096 --gc_interval=100 node_modules/.bin/next start",
+    "lint": "next lint",
+    "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
